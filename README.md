@@ -16,6 +16,8 @@ yarn dev
 
 Next, open [http://localhost:3000](http://localhost:3000) with your browser to run the project locally.
 
+Alternatively, the project is also hosted at [https://api-assignment.stevenwhitton.dev](https://api-assignment.stevenwhitton.dev)
+
 
 ## Development notes
 
