@@ -5,17 +5,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-top: 1px dashed rgb(34, 34, 75, 0.5);
 
   a {
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    transition: color 330ms ease;
+    transition: opacity 330ms ease;
     height: 100%;
+    color: black;
+    opacity: .5;
 
     &:hover {
-      color: navy;
+      opacity: 1;
     }
   }
 }
