@@ -1,5 +1,5 @@
 // API
-import { getAllProducts } from '@/api/products'
+import { getProductsByCategory } from '@/api/products'
 import { getAllCategories } from '@/api/categories'
 
 // Styles
@@ -10,7 +10,7 @@ import { ProductItem } from '@/components/molecules/ProductItem'
 import { GetServerSideProps } from 'next'
 
 
-// Types\
+// Types
 interface HomeProps {
   data: {
     products: ProductItemProps[]
@@ -49,15 +49,14 @@ const Home = ({
 export default Home
 
 
-export  const getServerSideProps: GetServerSideProps = async (context) => {
-  const products = await getAllProducts()
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const products = await getProductsByCategory(typeof(context.params?.category) === 'string' ? context.params?.category : '')
   const categories = await getAllCategories()
   const data = {
     products,
-    categories
+    categories,
+    currentCategory: context.params?.category
   }
-
-  console.log(context.params )
   
   return {
     props: { data }
