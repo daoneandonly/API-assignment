@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 // Components
-import { Search } from '@/components/atoms/Search'
+import { SearchInput } from '@/components/atoms/SearchInput'
 
 // Styles
 import styles from '@/styles/Nav.module.scss'
@@ -46,7 +46,7 @@ function Nav({
               </Link>
             )
           )}
-          <Search />
+          <SearchInput />
         </> 
       </nav>
     </div>

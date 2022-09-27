@@ -1,14 +1,12 @@
 import router from 'next/router'
 
 // Styles
-import styles from '@/styles/Search.module.scss'
+import styles from '@/styles/SearchInput.module.scss'
 
 // Types
 import type { FormEvent } from 'react'
 
-function Search () {
-
-  
+function SearchInput () {  
   function handleSearch(e: FormEvent) {
     e.preventDefault()
     const searchValue = e.currentTarget.querySelector('input')?.value
@@ -29,4 +27,4 @@ function Search () {
   )
 }
 
-export default Search
+export default SearchInput

@@ -56,8 +56,6 @@ export  const getServerSideProps: GetServerSideProps = async (context) => {
     products,
     categories
   }
-
-  console.log(context.params )
   
   return {
     props: { data }
