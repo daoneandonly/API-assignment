@@ -10,9 +10,7 @@ function SearchInput () {
   function handleSearch(e: FormEvent) {
     e.preventDefault()
     const searchValue = e.currentTarget.querySelector('input')?.value
-
-    router.push(`search?q=${searchValue}`)
-
+    router.push(`/search?q=${searchValue}`)
   }
 
   return (
