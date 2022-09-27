@@ -1,5 +1,7 @@
 .container {
+  background-color: rgb(34, 34, 75);
   margin-bottom: 0em;
+  color: white;
 
   @media screen and (min-width: 768px) {
     border-bottom: 2px solid rgba(0, 0, 0, 0.3);
@@ -10,9 +12,23 @@
   padding-block: .5em 3em;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 1440px;
   margin-inline: auto;
   flex-direction: column;
+
+  .title {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    border: 2px solid white;
+    border-radius: 24px;
+    margin-bottom: .5em;
+
+    :first-child {
+      font-size: 1.5em;
+    }
+  }
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -20,7 +36,7 @@
   }
 
   h1 {
-    margin: 0;
+    margin: unset;
 
     a {
       padding: 1em;
@@ -29,26 +45,45 @@
   }
 
   .link {
+    --highlight-color: rgba(0, 0, 0, .8);
+
+    position:relative;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    font-size: 1.3em;
     padding-inline: 1em;
-    border-bottom: 4px solid rgba(0, 0, 0, .2);
-    transition: border-color 330ms ease;
     padding-block: 1em;
+    border-radius: 0 0 4px 4px;
+    background-color: white;
+    color:rgba(0, 0, 0);
+    font-size: 1em;
+    width: 100%;
+
+    &::after {
+      transition: background-color 330ms ease;
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 8px;
+      background-color: var(--highlight-color);
+    }
 
     @media screen and (min-width: 768px) {
-      padding-block: unset;
+      font-size: 1.3em;
+      background-color: unset;  
+      color: white;
+      width: unset;
     }
 
     &.active {
-      border-color:rgb(35, 55, 154)
+      --highlight-color:rgb(145, 161, 240);
     }
 
     &:hover {
-      border-color: rgb(145, 161, 240)
+      --highlight-color: rgb(211, 212, 214)
     }
   }
 }

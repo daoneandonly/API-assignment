@@ -14,7 +14,7 @@ function SearchInput () {
   }
 
   return (
-    <form onSubmit={(e) => { handleSearch(e) }}>
+    <form className={styles.form} onSubmit={(e) => { handleSearch(e) }}>
         <input 
           className={styles.search} 
           type="text" 

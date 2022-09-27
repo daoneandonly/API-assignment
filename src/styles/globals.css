@@ -17,3 +17,8 @@ a {
   user-drag: none;
   -webkit-user-drag: none;
 }
+
+h1, h2, h3, h4, p, form, a {
+  padding: unset;
+  margin: unset;
+}

@@ -28,9 +28,9 @@ function Nav({
         <>
           <h1>
             <Link href="/">
-              <a>
-                <span>🛒</span>
-                Steven&apos;s Webshop
+              <a className={styles.title}>
+                <p>🛒</p>
+                <p>Steven&apos;s Webshop</p>
               </a>
             </Link>
           </h1>
