@@ -1,21 +1,17 @@
 import Image from 'next/image'
-import React from 'react'
 
 // Styles
-import styles from '@/styles/Home.module.scss'
+import styles from '@/styles/Footer.module.scss'
 
 function Footer(){
   return (
     <footer className={styles.footer}>
         <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          href="https://twitter.com/PantherAtNight"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
+          Made by Steven Whitton with ☕ and ❤
         </a>
       </footer>
   )
