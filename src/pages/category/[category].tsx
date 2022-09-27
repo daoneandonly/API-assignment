@@ -3,7 +3,7 @@ import { getProductsByCategory } from '@/api/products'
 import { getAllCategories } from '@/api/categories'
 
 // Styles
-import styles from '@/styles/Home.module.scss'
+import styles from '@/styles/Page.module.scss'
 import { Footer } from '@/components/organisms/Footer'
 import { Nav } from '@/components/organisms/Nav'
 import { ProductItem } from '@/components/molecules/ProductItem'
@@ -15,6 +15,7 @@ interface HomeProps {
   data: {
     products: ProductItemProps[]
     categories: string[]
+    activeCategory: string
   }
 }
 
@@ -23,13 +24,14 @@ const Home = ({
 }: HomeProps) => {
   const { 
     products, 
-    categories 
+    categories,
+    activeCategory 
   } = data
   
   return (
     <div className={styles.home}>
       <header>
-        <Nav />
+        <Nav categories={categories} activeCategory={activeCategory} />
       </header>
 
       <main className={styles.main}>
@@ -40,7 +42,7 @@ const Home = ({
           ))}
         </div>
       </main>
-      
+    
       <Footer />
     </div>
   )
@@ -55,7 +57,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = {
     products,
     categories,
-    currentCategory: context.params?.category
+    activeCategory: context.params?.category
   }
   
   return {

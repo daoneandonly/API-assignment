@@ -3,7 +3,7 @@ import { getAllProducts } from '@/api/products'
 import { getAllCategories } from '@/api/categories'
 
 // Styles
-import styles from '@/styles/Home.module.scss'
+import styles from '@/styles/Page.module.scss'
 import { Footer } from '../components/organisms/Footer'
 import { Nav } from '@/components/organisms/Nav'
 import { ProductItem } from '@/components/molecules/ProductItem'
@@ -29,17 +29,10 @@ const Home = ({
   return (
     <div className={styles.home}>
       <header>
-        <Nav />
+        <Nav categories={categories} />
       </header>
 
       <main className={styles.main}>
-
-        {/* Categories */}
-        {categories.map((category, idx) => (
-          <div key={idx}>
-            {category}
-          </div>
-        ))}
 
         {/* Products */}
         <div className={styles['product-list']}>

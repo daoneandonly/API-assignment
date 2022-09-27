@@ -22,7 +22,7 @@ function Search () {
         <input 
           className={styles.search} 
           type="text" 
-          placeholder='search' 
+          placeholder='Search' 
           name='search'
         />
       </form>
