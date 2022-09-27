@@ -65,8 +65,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const filteredProducts = products.filter((item: ProductItemProps) => {
     const lowerCaseTitle = item.title.toLowerCase()
-    console.log({q, includes: lowerCaseTitle.includes(q.toLowerCase()), title: lowerCaseTitle})
-
     return lowerCaseTitle.includes(q.toLowerCase())
   })
 

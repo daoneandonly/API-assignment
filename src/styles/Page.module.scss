@@ -8,23 +8,33 @@
 }
 
 .product-list {
+  width: 100%;
+  max-width: 1440px;
   padding: 12px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr;
   gap: 3em;
   margin-block: 3em;
+
+  @media screen and (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
 }
 
 .main {
   width: 100%;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin-inline: auto;
+
+  @media screen and (min-width: 768px) {
+    
+  }
 }
 
 .error {
-  // color: crimson;
   font-size: 1.5em;
 }
