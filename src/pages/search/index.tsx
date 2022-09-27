@@ -14,23 +14,25 @@ import { ProductItem } from '@/components/molecules/ProductItem'
 
 
 // Types
-interface HomeProps {
+interface SearchPageProps {
   data: {
     products: ProductItemProps[]
     categories: string[]
+    query: string
   }
 }
 
-const Home = ({
+const SearchPage = ({
   data
-}: HomeProps) => {
+}: SearchPageProps) => {
   const { 
     products, 
-    categories 
+    categories,
+    query
   } = data
   
   return (
-    <div className={styles.home}>
+    <div className={styles.page}>
       <header>
         <Nav categories={categories} />
       </header>
@@ -38,9 +40,13 @@ const Home = ({
       <main className={styles.main}>
         {/* Products */}
         <div className={styles['product-list']}>
-          {products.map((item, idx) => (
-            <ProductItem key={idx} {...item} />
-          ))}
+          {products.length > 0 ? (
+            products.map((item, idx) => (
+              <ProductItem key={idx} {...item} />
+            ))
+          ) : (
+            <p className={styles.error}>{`No Items found when searching for "${query}" 😟`}</p>
+          )}
         </div>
       </main>
       
@@ -49,7 +55,7 @@ const Home = ({
   )
 }
 
-export default Home
+export default SearchPage
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -67,7 +73,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const categories = await getAllCategories()
   const data = {
     products: filteredProducts,
-    categories
+    categories,
+    query: q
   }
   
   return {

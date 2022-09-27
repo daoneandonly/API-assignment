@@ -1,39 +1,41 @@
+import { GetServerSideProps } from 'next'
+
 // API
 import { getAllProducts } from '@/api/products'
 import { getAllCategories } from '@/api/categories'
 
 // Styles
 import styles from '@/styles/Page.module.scss'
+
+// Components
 import { Footer } from '../components/organisms/Footer'
 import { Nav } from '@/components/organisms/Nav'
 import { ProductItem } from '@/components/molecules/ProductItem'
-import { GetServerSideProps } from 'next'
 
 
 // Types
-interface HomeProps {
+interface HomePageProps {
   data: {
     products: ProductItemProps[]
     categories: string[]
   }
 }
 
-const Home = ({
+const HomePage = ({
   data
-}: HomeProps) => {
+}: HomePageProps) => {
   const { 
     products, 
     categories 
   } = data
   
   return (
-    <div className={styles.home}>
+    <div className={styles.page}>
       <header>
         <Nav categories={categories} />
       </header>
 
       <main className={styles.main}>
-
         {/* Products */}
         <div className={styles['product-list']}>
           {products.map((item, idx) => (
@@ -47,7 +49,7 @@ const Home = ({
   )
 }
 
-export default Home
+export default HomePage
 
 
 export const getServerSideProps: GetServerSideProps = async () => {

@@ -11,7 +11,7 @@ import { GetServerSideProps } from 'next'
 
 
 // Types
-interface HomeProps {
+interface CategoryPageProps {
   data: {
     products: ProductItemProps[]
     categories: string[]
@@ -19,9 +19,9 @@ interface HomeProps {
   }
 }
 
-const Home = ({
+const CategoryPage = ({
   data
-}: HomeProps) => {
+}: CategoryPageProps) => {
   const { 
     products, 
     categories,
@@ -48,7 +48,7 @@ const Home = ({
   )
 }
 
-export default Home
+export default CategoryPage
 
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
