@@ -4,13 +4,14 @@ import { getAllCategories } from '@/api/categories'
 
 // Styles
 import styles from '@/styles/Home.module.scss'
-import { Footer } from '../components/organisms/Footer'
+import { Footer } from '@/components/organisms/Footer'
 import { Nav } from '@/components/organisms/Nav'
 import { ProductItem } from '@/components/molecules/ProductItem'
+import { ContextType } from 'react'
 import { GetServerSideProps } from 'next'
 
 
-// Types
+// Types\
 interface HomeProps {
   data: {
     products: ProductItemProps[]
@@ -33,14 +34,6 @@ const Home = ({
       </header>
 
       <main className={styles.main}>
-
-        {/* Categories */}
-        {categories.map((category, idx) => (
-          <div key={idx}>
-            {category}
-          </div>
-        ))}
-
         {/* Products */}
         <div className={styles['product-list']}>
           {products.map((item, idx) => (
@@ -57,13 +50,15 @@ const Home = ({
 export default Home
 
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export  const getServerSideProps: GetServerSideProps = async (context) => {
   const products = await getAllProducts()
   const categories = await getAllCategories()
   const data = {
     products,
     categories
   }
+
+  console.log(context.params )
   
   return {
     props: { data }
