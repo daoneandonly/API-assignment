@@ -1,0 +1,10 @@
+.search {
+  border-radius: 4px;
+  font-size: 1.1em;
+  padding: .5em;
+  border: rgba(0, 0, 0, 0.2);
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.2)
+  }
+}
